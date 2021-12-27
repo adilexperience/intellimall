@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_recommendations"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.recommendation.RecommendationFragment"
+        android:label="@string/recommendations"
+        tools:layout="@layout/fragment_recommendation" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.gallery.GalleryFragment"
+        android:label="@string/profile_info"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.search.SearchFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/nav_shopping_cart"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.cart.ShoppingCartFragment"
+        android:label="@string/shopping_cart"
+        tools:layout="@layout/fragment_shopping_cart" />
+
+    <fragment
+        android:id="@+id/nav_all_orders"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.order.AllOrdersFragment"
+        android:label="@string/order_history"
+        tools:layout="@layout/fragment_all_orders" />
+
+    <fragment
+        android:id="@+id/nav_pending_feedbacks"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.feedback.FeedbackFragment"
+        android:label="@string/pending_feedbacks"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@+id/signout"
+        android:name="com.example.fypproject.intelimall.views.dashboard.ui.signout.SignOutFragment"
+        android:label="@string/signout"
+        tools:layout="@layout/fragment_sign_out" />
+
+</navigation>

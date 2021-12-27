@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp">
+
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/flour"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_alignParentEnd="true"
+        android:layout_marginVertical="10dp">
+
+        <TextView
+            android:id="@+id/product_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Title"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantity:"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/product_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unit Price:"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1000 PKR"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_product_net_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Net Item Price:"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_net_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10000 PKR"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:gravity="end"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

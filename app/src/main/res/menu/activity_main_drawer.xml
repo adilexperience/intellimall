@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_recommendations"
+            android:icon="@drawable/ic_baseline_list_alt_24"
+            android:title="@string/recommendations" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:title="@string/profile_info" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_baseline_search_24"
+            android:title="@string/search" />
+        <item
+            android:id="@+id/nav_shopping_cart"
+            android:icon="@drawable/ic_baseline_shopping_cart_24"
+            android:title="@string/shopping_cart" />
+        <item
+            android:id="@+id/nav_all_orders"
+            android:icon="@drawable/ic_baseline_list_alt_24"
+            android:title="@string/order_history" />
+        <item
+            android:id="@+id/nav_pending_feedbacks"
+            android:icon="@drawable/ic_baseline_rate_review_24"
+            android:title="@string/pending_feedbacks" />
+        <item
+            android:id="@+id/signout"
+            android:icon="@drawable/ic_baseline_exit_to_app_24"
+            android:title="@string/action_signout" />
+
+    </group>
+</menu>

@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">intelimall</string>
+    <string name="title_activity_home_drawer">HomeDrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_signout">Sign Out</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_options">options</string>
+    <string name="profile_info">Profile Info</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="search">Search Products</string>
+    <string name="order_history">Order History</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="account_restricted">Account Restricted</string>
+    <string name="account_restricted_detail">Admin restricted your access to the application. you will not be able to surf intellimall till admin unblocks you. Contact the support team to get access again.</string>
+    <string name="pending_feedbacks">Pending Feedbacks</string>
+    <string name="signout">SignOut</string>
+    <string name="empty_cart">Empty shopping cart</string>
+
+    <string-array name="qunity">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="all">All</string>
+    <string name="beverages">Beverages</string>
+    <string name="bread">Bread</string>
+    <string name="canned_goods">Canned Goods</string>
+    <string name="dairy">Dairy</string>
+    <string name="dry_goods">Dry Goods</string>
+    <string name="frozen_foods">Frozen Foods</string>
+    <string name="meat">Meat</string>
+    <string name="order_now">Order Now</string>
+    <string name="add_to_cart">Add to cart</string>
+</resources>

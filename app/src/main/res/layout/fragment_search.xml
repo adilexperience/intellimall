@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    tools:context=".views.dashboard.ui.search.SearchFragment">
+    
+    <LinearLayout
+        android:id="@+id/ll_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="20"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="17"
+            android:textColorHint="@color/grey"
+            android:hint="Search products"
+            android:layout_marginRight="10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_search_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_search"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            app:cardCornerRadius="5dp"
+            android:layout_marginVertical="3dp"
+            app:cardBackgroundColor="@color/orange"
+            >
+            
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:src="@drawable/ic_baseline_search_24"
+                />
+            
+        </androidx.cardview.widget.CardView>
+        
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/gv_products"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        app:spanCount="2"
+        tools:listitem="@layout/newlayout"
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@id/ll_search"
+        android:layout_alignParentBottom="true"/>
+    
+</RelativeLayout>

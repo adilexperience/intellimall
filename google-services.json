@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "492767520798",
+    "project_id": "intellimall",
+    "storage_bucket": "intellimall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492767520798:android:8dedc392e9304f8b61a60f",
+        "android_client_info": {
+          "package_name": "com.example.sairamkrishna.intelimall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492767520798-acpenpaut0ol5s3bi1bqmm9dirdthoc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjZs-ApWTLCLfSvCT_LBi924AhxlH77nI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492767520798-acpenpaut0ol5s3bi1bqmm9dirdthoc3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

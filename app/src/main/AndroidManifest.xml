@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fypproject.intelimall">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logomall"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logomall"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Intelimall">
+        <activity
+            android:name=".views.LockedActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.dashboard.ui.product.ProductDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.dashboard.ui.order.OrderDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.authentication.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.authentication.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.dashboard.Dashboard"
+            android:label="@string/title_activity_home_drawer"
+            android:theme="@style/Theme.Intelimall" />
+    </application>
+
+</manifest>

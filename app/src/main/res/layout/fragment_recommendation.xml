@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/rl_has_recommendations"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/ll_recommendation_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hand Picked Products for you"
+                android:textSize="26sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intellimall picked these products for you to shop. Top products which suits your taste are just a click away now."
+                android:textSize="16sp"
+                android:textColor="@color/grey"/>
+
+        </LinearLayout>
+
+        <GridView
+            android:id="@+id/gv_products"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:layout_below="@id/ll_recommendation_header"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            app:spanCount="2"
+            tools:listitem="@layout/newlayout" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_no_items"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:adjustViewBounds="true"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:layout_marginBottom="20dp"
+            app:lottie_rawRes="@raw/no_record" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No recommendations available"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intellimall is working always to provide your best possible products to enjoy. Order items to start getting recommendations."
+            android:textSize="16sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/grey"/>
+
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="200dp"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        app:lottie_rawRes="@raw/loading" />
+
+</RelativeLayout>
