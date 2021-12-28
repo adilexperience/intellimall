@@ -47,14 +47,15 @@ public class ShoppingCartFragment extends Fragment {
 
     // views
     private LottieAnimationView _loadingAnim;
-    private LinearLayout _llNoResults;
-    private RelativeLayout _rlHaveCartItems;
+    public static LinearLayout _llNoResults;
+    public static RelativeLayout _rlHaveCartItems;
     private RecyclerView _rvCartItems;
-    private TextView _tvItemsInCartAndTotalPrice, _tvEmptyCart;
+    public static TextView _tvItemsInCartAndTotalPrice;
+    private TextView _tvEmptyCart;
     private CardView _cvOrderNow;
 
     // variables
-    private String totalPrice;
+    public static String totalPrice;
     private UserModal _user;
     public static ArrayList<CartItemModal> _cartItemsModalList;
     public static ShoppingCartAdapter shoppingCartAdapter;
@@ -163,16 +164,7 @@ public class ShoppingCartFragment extends Fragment {
                 if(_cartItemsModalList.size() == 0)
                     _llNoResults.setVisibility(View.VISIBLE);
                 else {
-                    int _inCartProductsCount = _cartItemsModalList.size();
-                    double _totalPrice = 0;
-                    for (CartItemModal cartItemModal : _cartItemsModalList) {
-                        int productQuantity = cartItemModal.getQuantity();
-                        double productPrice = Double.parseDouble(cartItemModal.getProduct().getPrice());
-
-                        _totalPrice += productQuantity * productPrice;
-                    }
-                    totalPrice = _totalPrice + "";
-                    _tvItemsInCartAndTotalPrice.setText("("+ _inCartProductsCount + " Items) In Cart, Total Price: " + _totalPrice + " PKR");
+                    updateCartInformation(_cartItemsModalList);
                     _rlHaveCartItems.setVisibility(View.VISIBLE);
                 }
 
@@ -183,6 +175,23 @@ public class ShoppingCartFragment extends Fragment {
                 Log.e("SHOPPING_CART", t.getMessage());
             }
         });
+    }
+
+    public static void updateCartInformation(List<CartItemModal> list) {
+        int _inCartProductsCount = list.size();
+        double _totalPrice = 0;
+        for (CartItemModal cartItemModal : list) {
+            int productQuantity = cartItemModal.getQuantity();
+            double productPrice = Double.parseDouble(cartItemModal.getProduct().getPrice());
+
+            _totalPrice += productQuantity * productPrice;
+        }
+        totalPrice = _totalPrice + "";
+        _tvItemsInCartAndTotalPrice.setText("("+ _inCartProductsCount + " Items) In Cart, Total Price: " + _totalPrice + " PKR");
+        if(_inCartProductsCount == 0) {
+            _rlHaveCartItems.setVisibility(View.GONE);
+            _llNoResults.setVisibility(View.VISIBLE);
+        }
     }
 
     void _bindViewsWithID(View view) {

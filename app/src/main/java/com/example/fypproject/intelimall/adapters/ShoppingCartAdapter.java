@@ -24,6 +24,7 @@ import com.example.fypproject.intelimall.models.ProductModal;
 import com.example.fypproject.intelimall.models.UpdateCartItemModal;
 import com.example.fypproject.intelimall.network.ApiRequests;
 import com.example.fypproject.intelimall.utils.Constant;
+import com.example.fypproject.intelimall.views.dashboard.ui.cart.ShoppingCartFragment;
 import com.example.fypproject.intelimall.views.dashboard.ui.home.HomeFragment;
 import com.squareup.picasso.Picasso;
 
@@ -87,6 +88,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                         mCartItemsModalList.remove(holder.getAdapterPosition());
                         notifyItemRemoved(holder.getAdapterPosition());
                         notifyItemRangeChanged(holder.getAdapterPosition(), mCartItemsModalList.size());
+                        ShoppingCartFragment.updateCartInformation(mCartItemsModalList);
                     }
 
                     @Override
