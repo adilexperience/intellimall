@@ -33,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FeedbackFragment extends Fragment {
+public class    FeedbackFragment extends Fragment {
     private RecyclerView _rvFeedbacks;
     private LottieAnimationView _loadingAnim;
     private LinearLayout _llNoItems;

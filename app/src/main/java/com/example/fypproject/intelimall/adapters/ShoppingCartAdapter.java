@@ -21,6 +21,7 @@ import com.example.fypproject.intelimall.R;
 import com.example.fypproject.intelimall.models.CartItemModal;
 import com.example.fypproject.intelimall.models.CategoryButton;
 import com.example.fypproject.intelimall.models.ProductModal;
+import com.example.fypproject.intelimall.models.UpdateCartItemModal;
 import com.example.fypproject.intelimall.network.ApiRequests;
 import com.example.fypproject.intelimall.utils.Constant;
 import com.example.fypproject.intelimall.views.dashboard.ui.home.HomeFragment;
@@ -74,6 +75,26 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
 
         holder.tvProductPrice.setText(cartItem.getProduct().getPrice());
         holder.tvNetPrice.setText((cartItem.getQuantity() * Double.parseDouble(cartItem.getProduct().getPrice())) + " PKR");
+
+        holder.ivDeleteProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UpdateCartItemModal updateCartItemModal = new UpdateCartItemModal(0, cartItem.getUser_id(), cartItem.getProduct_id());
+                Call<Void> updateCartCall = ApiRequests.getApiService().updateCartItem(updateCartItemModal);
+                updateCartCall.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        mCartItemsModalList.remove(holder.getAdapterPosition());
+                        notifyItemRemoved(holder.getAdapterPosition());
+                        notifyItemRangeChanged(holder.getAdapterPosition(), mCartItemsModalList.size());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -83,7 +104,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView ivProduct;
+        ImageView ivProduct, ivDeleteProduct;
         TextView tvProductTitle, tvProductQuantity, tvProductPrice, tvNetPrice;
         LinearLayout llProductPrice, llNetPrice;
 
@@ -93,6 +114,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
             llNetPrice = itemView.findViewById(R.id.ll_product_net_price);
 
             ivProduct = itemView.findViewById(R.id.iv_product);
+            ivDeleteProduct = itemView.findViewById(R.id.iv_delete);
             tvProductTitle = itemView.findViewById(R.id.product_title);
             tvProductQuantity = itemView.findViewById(R.id.product_quantity);
             tvProductPrice = itemView.findViewById(R.id.tv_product_price);

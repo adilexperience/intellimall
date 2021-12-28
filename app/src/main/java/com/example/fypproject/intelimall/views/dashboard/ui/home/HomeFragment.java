@@ -49,7 +49,6 @@ public class HomeFragment extends Fragment {
     public static CategoryButton _selectedCategoryButton = new CategoryButton(1, R.string.all, Constant.ALL, true);
     private CategoryButtonAdapter categoryButtonAdapter;
     public static AllProductsAdapter allProductsAdapter;
-    private UserModal _user;
 
     public static void updateSelectedCard(int id) {
         _selectedCategoryButton = categoryButtonsArrayList.get(Constant.getCategoryItemIndex(categoryButtonsArrayList, id));
@@ -76,9 +75,6 @@ public class HomeFragment extends Fragment {
 
         // initialize views with ids
         _bindViewsWithID(root);
-
-        // get user data from shared preferences
-        _user = Persistent.getLoggedInUser(getContext());
 
         _populateHorizontalListData();
 

@@ -13,6 +13,8 @@
     <string name="profile_info">Profile Info</string>
     <string name="shopping_cart">Shopping Cart</string>
     <string name="search">Search Products</string>
+    <string name="no_products_found">No products found</string>
+    <string name="no_products_found_description">No products found in our records matching your types search query. double check for typos and try-again. anyways, Intellimall have many more to offer, shop others now</string>
     <string name="order_history">Order History</string>
     <string name="recommendations">Recommendations</string>
     <string name="account_restricted">Account Restricted</string>

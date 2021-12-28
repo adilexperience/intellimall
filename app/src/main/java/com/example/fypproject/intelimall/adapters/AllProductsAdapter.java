@@ -45,7 +45,6 @@ public class AllProductsAdapter extends BaseAdapter{
     //views
     private Context mContext;
     private List<ProductModal> mProductsModalList;
-    private View view;
 
     public AllProductsAdapter(Context mContext, List<ProductModal> mProductsModalList) {
         this.mContext = mContext;
@@ -73,46 +72,46 @@ public class AllProductsAdapter extends BaseAdapter{
         LayoutInflater inflater = (LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (view == null) {
-
-            ProductModal productModal = mProductsModalList.get(i);
-
             grid = new View(mContext);
-            grid = inflater.inflate(R.layout.newlayout, null);
-
-            TextView mTVProductTitle, mTVProductPrice, mTVProductCategory, mTVProductDescription;
-            ImageView ivProductImage;
-            RelativeLayout rlProduct;
-
-            mTVProductPrice = grid.findViewById(R.id.product_price);
-            mTVProductTitle = grid.findViewById(R.id.product_name);
-            mTVProductDescription = grid.findViewById(R.id.product_description);
-            ivProductImage = grid.findViewById(R.id.product_image);
-            mTVProductCategory = grid.findViewById(R.id.tv_product_category);
-            rlProduct = grid.findViewById(R.id.rl_product);
-
-            rlProduct.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Constant.openProductDetailsUI(mContext, productModal);
-                }
-            });
-
-            mTVProductTitle.setText(productModal.getTitle());
-            mTVProductPrice.setText("RS:" + productModal.getPrice());
-            mTVProductDescription.setText(productModal.getDescription());
-            mTVProductCategory.setText(productModal.getCategory().toUpperCase());
-            if(productModal.getImage_url().startsWith("data")) {
-                // convert data base64 to image
-                String base64String = productModal.getImage_url();
-                String base64Image = base64String.split(",")[1];
-                byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
-                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                ivProductImage.setImageBitmap(decodedByte);
-            }else
-                Picasso.get().load(productModal.getImage_url()).into(ivProductImage);
-
+            grid = inflater.inflate(R.layout.newlayout, viewGroup, false);
         } else
             grid = (View) view;
+
+        ProductModal productModal = mProductsModalList.get(i);
+
+
+
+        TextView mTVProductTitle, mTVProductPrice, mTVProductCategory, mTVProductDescription;
+        ImageView ivProductImage;
+        RelativeLayout rlProduct;
+
+        mTVProductPrice = grid.findViewById(R.id.product_price);
+        mTVProductTitle = grid.findViewById(R.id.product_name);
+        mTVProductDescription = grid.findViewById(R.id.product_description);
+        ivProductImage = grid.findViewById(R.id.product_image);
+        mTVProductCategory = grid.findViewById(R.id.tv_product_category);
+        rlProduct = grid.findViewById(R.id.rl_product);
+
+        rlProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Constant.openProductDetailsUI(mContext, productModal);
+            }
+        });
+
+        mTVProductTitle.setText(productModal.getTitle());
+        mTVProductPrice.setText("RS:" + productModal.getPrice());
+        mTVProductDescription.setText(productModal.getDescription());
+        mTVProductCategory.setText(productModal.getCategory().toUpperCase());
+        if(productModal.getImage_url().startsWith("data")) {
+            // convert data base64 to image
+            String base64String = productModal.getImage_url();
+            String base64Image = base64String.split(",")[1];
+            byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            ivProductImage.setImageBitmap(decodedByte);
+        }else
+            Picasso.get().load(productModal.getImage_url()).into(ivProductImage);
 
         return grid;
     }

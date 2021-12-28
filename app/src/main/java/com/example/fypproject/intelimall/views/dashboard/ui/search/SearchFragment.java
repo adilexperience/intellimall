@@ -10,11 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 
 import com.example.fypproject.intelimall.R;
 import com.example.fypproject.intelimall.adapters.AllProductsAdapter;
 import com.example.fypproject.intelimall.models.ProductModal;
 import com.example.fypproject.intelimall.network.ApiRequests;
+import com.example.fypproject.intelimall.utils.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,7 @@ public class SearchFragment extends Fragment {
     private EditText _etSearchProducts;
     private CardView _cvSearch;
     private GridView _gvProducts;
+    private LinearLayout _llNoItems;
 
     public static ArrayList<ProductModal> _allProductsModalArrayList, _filteredProductsModalArrayList;
     public static AllProductsAdapter allProductsAdapter;
@@ -60,14 +63,25 @@ public class SearchFragment extends Fragment {
     void _processSearch() {
         String search = _etSearchProducts.getText().toString().trim();
 
-        _filteredProductsModalArrayList.clear();
-        for (ProductModal productModal : _allProductsModalArrayList) {
-            if(productModal.getTitle().toLowerCase().contains(search))
-                _filteredProductsModalArrayList.add(productModal);
-        }
+        if(_allProductsModalArrayList.size() == 0)
+            Constant.showSnackBar(getActivity(), "we are getting things ready for you. please wait !");
+        else{
+            _filteredProductsModalArrayList.clear();
+            for (ProductModal productModal : _allProductsModalArrayList) {
+                if(productModal.getTitle().toLowerCase().contains(search))
+                    _filteredProductsModalArrayList.add(productModal);
+            }
 
-        allProductsAdapter.notifyDataSetChanged();
-        _gvProducts.setVisibility(View.VISIBLE);
+            if(_filteredProductsModalArrayList.size() == 0) {
+                _gvProducts.setVisibility(View.GONE);
+                _llNoItems.setVisibility(View.VISIBLE);
+            }else {
+                _gvProducts.setVisibility(View.VISIBLE);
+                _llNoItems.setVisibility(View.GONE);
+            }
+
+            allProductsAdapter.notifyDataSetChanged();
+        }
     }
 
     private void _populateProducts() {
@@ -86,9 +100,8 @@ public class SearchFragment extends Fragment {
                     // mapping   values to adapter and displaying to UI
                     allProductsAdapter = new AllProductsAdapter(getContext(), _filteredProductsModalArrayList);
                     _gvProducts.setAdapter(allProductsAdapter);
+                    _gvProducts.setVisibility(View.VISIBLE);
                 }
-
-//                _gvProducts.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -101,6 +114,7 @@ public class SearchFragment extends Fragment {
         _etSearchProducts = view.findViewById(R.id.et_search_products);
         _cvSearch = view.findViewById(R.id.cv_search);
         _gvProducts = view.findViewById(R.id.gv_products);
+        _llNoItems = view.findViewById(R.id.ll_no_items);
     }
 
 }
