@@ -24,7 +24,7 @@ public class Constant {
    public static final String PRODUCT_INTENT = "PRODUCT";
    public static final String ORDER_INTENT = "ORDER";
    public static final String LOGGED_IN_USER = "LoggedInUser";
-    public static final String BASE_URL = "https://intelli-mall.herokuapp.com/";
+    public static final String BASE_URL = "https://intelli--mall.herokuapp.com/";
     public static final String RECOMMENDATION_BASE_URL = "https://intellimall-python.herokuapp.com/";
 
     public static final String ALL = "all";
